@@ -1,8 +1,7 @@
 ﻿<Application x:Class="ImeSense.SourceBase.Client.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:l="clr-namespace:ImeSense.SourceBase.Client"
-             StartupUri="MainWindow.xaml">
+             xmlns:l="clr-namespace:ImeSense.SourceBase.Client">
     <Application.Resources>
     </Application.Resources>
 </Application>
