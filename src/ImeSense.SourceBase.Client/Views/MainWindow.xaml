@@ -22,7 +22,8 @@
         <Menu Grid.Row="0">
             <MenuItem Header="File">
                 <MenuItem Header="Exit"
-                          InputGestureText="Alt+f4" />
+                          InputGestureText="Alt+F4"
+                          Command="{Binding Path=ExitMenuItemCommand}" />
             </MenuItem>
 
             <MenuItem Header="Help">
