@@ -9,5 +9,22 @@
         Height="450"
         Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" 
+                          InputGestureText="Alt+f4" />
+            </MenuItem>
+
+            <MenuItem Header="Help">
+                <MenuItem Header="About" />
+            </MenuItem>
+        </Menu>
+
+        <ScrollViewer Grid.Row="1" />
     </Grid>
 </Window>
