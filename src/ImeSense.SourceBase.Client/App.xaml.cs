@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 
+using ImeSense.SourceBase.Client.Views;
+
 namespace ImeSense.SourceBase.Client;
 
 /// <summary>

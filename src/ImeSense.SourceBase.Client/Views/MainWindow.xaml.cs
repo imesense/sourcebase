@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ImeSense.SourceBase.Client;
+namespace ImeSense.SourceBase.Client.Views;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
