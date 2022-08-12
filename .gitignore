@@ -5,3 +5,8 @@
 
 # Visual Studio user settings
 *.suo
+*.user
+
+# Build results
+obj/
+bin/
