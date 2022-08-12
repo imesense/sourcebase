@@ -6,11 +6,12 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{67D7522E-56E5-41EB-B013-E35BB1D0679B}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImeSense.SourceBase.Client", "src\ImeSense.SourceBase.Client\ImeSense.SourceBase.Client.csproj", "{0E5C6AB4-82AA-418B-A4FF-4C196643DA23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImeSense.SourceBase.Client", "src\ImeSense.SourceBase.Client\ImeSense.SourceBase.Client.csproj", "{0E5C6AB4-82AA-418B-A4FF-4C196643DA23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
