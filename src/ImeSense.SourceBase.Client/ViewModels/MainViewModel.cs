@@ -15,4 +15,8 @@ public class MainViewModel : BaseViewModel {
         var settingsWindow = new SettingsWindow();
         settingsWindow.Show();
     });
-}
+    private RelayCommand? _showAboutWindowCommand;
+    public RelayCommand ShowAboutWindowCommand => _showAboutWindowCommand ??= new RelayCommand(_ => {
+        var aboutWindow = new AboutWindow();
+        aboutWindow.Show();
+    });}
