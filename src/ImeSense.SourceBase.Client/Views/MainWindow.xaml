@@ -26,6 +26,11 @@
                           Command="{Binding Path=ExitMenuItemCommand}" />
             </MenuItem>
 
+            <MenuItem Header="View">
+                <MenuItem Header="Settings..." 
+                          Command="{Binding Path=ShowSettingsWindowCommand}"/>
+            </MenuItem>
+
             <MenuItem Header="Help">
                 <MenuItem Header="About" />
             </MenuItem>
