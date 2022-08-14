@@ -1,5 +1,8 @@
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
+
+using Ookii.Dialogs.Wpf;
 
 using ImeSense.SourceBase.Client.Views;
 
@@ -30,6 +33,21 @@ public class MainViewModel : BaseViewModel {
     public RelayCommand ShowAboutWindowCommand => _showAboutWindowCommand ??= new RelayCommand(ShowAboutWindow);
 
     private void CreateRepository(object? commandParameter) {
+        var openFolderDialog = new VistaFolderBrowserDialog();
+        _ = openFolderDialog.ShowDialog();
+
+        var path = openFolderDialog.SelectedPath;
+        var process = new Process {
+            StartInfo = new ProcessStartInfo() {
+                FileName = "git.exe",
+                ArgumentList = {
+                    "init",
+                    path
+                },
+                CreateNoWindow = true,
+            },
+        };
+        process.Start();
     }
 
     private RelayCommand? _createRepositoryCommand;
