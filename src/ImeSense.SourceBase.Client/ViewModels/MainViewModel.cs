@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Input;
 
 using ImeSense.SourceBase.Client.Views;
 
@@ -27,4 +28,16 @@ public class MainViewModel : BaseViewModel {
 
     private RelayCommand? _showAboutWindowCommand;
     public RelayCommand ShowAboutWindowCommand => _showAboutWindowCommand ??= new RelayCommand(ShowAboutWindow);
+
+    private void CreateRepository(object? commandParameter) {
+    }
+
+    private RelayCommand? _createRepositoryCommand;
+    public ICommand CreateRepositoryCommand => _createRepositoryCommand ??= new RelayCommand(CreateRepository);
+
+    private void CloneRepository(object? commandParameter) {
+    }
+
+    private RelayCommand? _cloneRepositoryCommand;
+    public ICommand CloneRepositoryCommand => _cloneRepositoryCommand ??= new RelayCommand(CloneRepository);
 }
