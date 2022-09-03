@@ -54,6 +54,23 @@ public class MainViewModel : BaseViewModel {
     public ICommand CreateRepositoryCommand => _createRepositoryCommand ??= new RelayCommand(CreateRepository);
 
     private void CloneRepository(object? commandParameter) {
+        var openFolderDialog = new VistaFolderBrowserDialog();
+        _ = openFolderDialog.ShowDialog();
+
+        var source = "https://github.com/imesense/sourcebase-client.git";
+        var path = openFolderDialog.SelectedPath;
+        var process = new Process {
+            StartInfo = new ProcessStartInfo() {
+                FileName = "git.exe",
+                ArgumentList = {
+                    "clone",
+                    source,
+                    path
+                },
+                CreateNoWindow = true,
+            },
+        };
+        process.Start();
     }
 
     private RelayCommand? _cloneRepositoryCommand;
