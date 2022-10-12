@@ -1,7 +1,7 @@
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 
+using LibGit2Sharp;
 using Ookii.Dialogs.Wpf;
 
 using ImeSense.SourceBase.Client.Views;
@@ -37,17 +37,7 @@ public class MainViewModel : BaseViewModel {
         _ = openFolderDialog.ShowDialog();
 
         var path = openFolderDialog.SelectedPath;
-        var process = new Process {
-            StartInfo = new ProcessStartInfo() {
-                FileName = "git.exe",
-                ArgumentList = {
-                    "init",
-                    path
-                },
-                CreateNoWindow = true,
-            },
-        };
-        process.Start();
+        Repository.Init(path);
     }
 
     private RelayCommand? _createRepositoryCommand;
@@ -59,18 +49,7 @@ public class MainViewModel : BaseViewModel {
 
         var source = "https://github.com/imesense/sourcebase-client.git";
         var path = openFolderDialog.SelectedPath;
-        var process = new Process {
-            StartInfo = new ProcessStartInfo() {
-                FileName = "git.exe",
-                ArgumentList = {
-                    "clone",
-                    source,
-                    path
-                },
-                CreateNoWindow = true,
-            },
-        };
-        process.Start();
+        Repository.Clone(source, path);
     }
 
     private RelayCommand? _cloneRepositoryCommand;
