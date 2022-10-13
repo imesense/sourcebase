@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <TargetFramework>net6.0-windows</TargetFramework>
@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="ImeSense.Helpers.Mvvm" Version="0.2.0" />
         <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
         <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
     </ItemGroup>

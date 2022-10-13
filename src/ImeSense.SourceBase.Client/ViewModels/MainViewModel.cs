@@ -1,57 +1,58 @@
 using System.Windows;
-using System.Windows.Input;
 
 using LibGit2Sharp;
 using Ookii.Dialogs.Wpf;
 
 using ImeSense.SourceBase.Client.Views;
+using ImeSense.Helpers.Mvvm.ComponentModel;
+using ImeSense.Helpers.Mvvm.Input;
 
 namespace ImeSense.SourceBase.Client.ViewModels;
 
-public class MainViewModel : BaseViewModel {
-    private void ExitApplication(object? commandParameter) {
+public class MainViewModel : ObservableObject {
+    private static void ExitApplication() {
         Application.Current.Shutdown();
     }
 
-    private RelayCommand? _exitMenuItemCommand;
-    public RelayCommand ExitMenuItemCommand => _exitMenuItemCommand ??= new RelayCommand(ExitApplication);
+    private IRelayCommand? _exitMenuItemCommand;
+    public IRelayCommand ExitMenuItemCommand => _exitMenuItemCommand ??= new RelayCommand(ExitApplication);
 
-    private void ShowSettingsWindow(object? commandParameter) {
+    private void ShowSettingsWindow() {
         var settingsWindow = new SettingsWindow();
         settingsWindow.Show();
     }
 
-    private RelayCommand? _showSettingsWindowCommand;
-    public RelayCommand ShowSettingsWindowCommand => _showSettingsWindowCommand ??= new RelayCommand(ShowSettingsWindow);
+    private IRelayCommand? _showSettingsWindowCommand;
+    public IRelayCommand ShowSettingsWindowCommand => _showSettingsWindowCommand ??= new RelayCommand(ShowSettingsWindow);
 
-    private void ShowAboutWindow(object? commandParameter) {
+    private void ShowAboutWindow() {
         var aboutWindow = new AboutWindow();
         aboutWindow.Show();
     }
 
-    private RelayCommand? _showAboutWindowCommand;
-    public RelayCommand ShowAboutWindowCommand => _showAboutWindowCommand ??= new RelayCommand(ShowAboutWindow);
+    private IRelayCommand? _showAboutWindowCommand;
+    public IRelayCommand ShowAboutWindowCommand => _showAboutWindowCommand ??= new RelayCommand(ShowAboutWindow);
 
-    private void CreateRepository(object? commandParameter) {
+    private void CreateRepository() {
         var openFolderDialog = new VistaFolderBrowserDialog();
         _ = openFolderDialog.ShowDialog();
 
         var path = openFolderDialog.SelectedPath;
-        Repository.Init(path);
+        _ = Repository.Init(path);
     }
 
-    private RelayCommand? _createRepositoryCommand;
-    public ICommand CreateRepositoryCommand => _createRepositoryCommand ??= new RelayCommand(CreateRepository);
+    private IRelayCommand? _createRepositoryCommand;
+    public IRelayCommand CreateRepositoryCommand => _createRepositoryCommand ??= new RelayCommand(CreateRepository);
 
-    private void CloneRepository(object? commandParameter) {
+    private void CloneRepository() {
         var openFolderDialog = new VistaFolderBrowserDialog();
         _ = openFolderDialog.ShowDialog();
 
         var source = "https://github.com/imesense/sourcebase-client.git";
         var path = openFolderDialog.SelectedPath;
-        Repository.Clone(source, path);
+        _ = Repository.Clone(source, path);
     }
 
-    private RelayCommand? _cloneRepositoryCommand;
-    public ICommand CloneRepositoryCommand => _cloneRepositoryCommand ??= new RelayCommand(CloneRepository);
+    private IRelayCommand? _cloneRepositoryCommand;
+    public IRelayCommand CloneRepositoryCommand => _cloneRepositoryCommand ??= new RelayCommand(CloneRepository);
 }

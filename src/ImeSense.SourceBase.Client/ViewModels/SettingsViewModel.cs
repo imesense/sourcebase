@@ -1,4 +1,6 @@
-﻿namespace ImeSense.SourceBase.Client.ViewModels;
+using ImeSense.Helpers.Mvvm.ComponentModel;
 
-public class SettingsViewModel : BaseViewModel {
+namespace ImeSense.SourceBase.Client.ViewModels;
+
+public class SettingsViewModel : ObservableObject {
 }
